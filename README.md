@@ -1,11 +1,11 @@
-# ⏳ Extensão Pomodoro – Pedro Alves
+# ⏳ Extensão Pomodoro – Pedro Alves  
 
-Uma extensão simples de **Pomodoro** para Google Chrome/Opera GX.  
+Uma extensão simples de **Pomodoro** para Google Chrome / Opera GX.  
 Ideal para quem quer organizar o tempo de estudo ou trabalho com ciclos de 25 minutos de foco.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🗂️ Estrutura do Projeto
 
 ```bash
 pomodoro-extension/
@@ -14,30 +14,35 @@ pomodoro-extension/
 ├─ popup.js
 ├─ manifest.json
 └─ README.md
-Simples e direto: só os arquivos essenciais para a extensão funcionar.
+```
+Simples e direto: apenas os arquivos essenciais para a extensão funcionar.
 
-🖼️ Screenshots
-Popup da Extensão	Alerta de Fim de Ciclo
-(adicione aqui uma imagem do popup aberto)	(adicione aqui o alerta que aparece quando o tempo acaba)
+# 🖼️ Screenshots
+📌 Popup da Extensão
+(adicione aqui um print do popup aberto no navegador)
 
-📜 Código dos Arquivos
+📌 Alerta de Fim de Ciclo
+(adicione aqui um print da mensagem de alerta quando o tempo acabar)
+
+# 💻 Código dos Arquivos
+```
 popup.html
 html
 Copiar código
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Pomodoro</title>
-  <link rel="stylesheet" href="popup.css">
-</head>
-<body>
-  <h1>Pomodoro</h1>
-  <div id="timer">25:00</div>
-  <button id="start">Iniciar</button>
-  <button id="reset">Resetar</button>
-  <script src="popup.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <h1>Pomodoro</h1>
+    <div id="timer">25:00</div>
+    <button id="start">Iniciar</button>
+    <button id="reset">Resetar</button>
+    <script src="popup.js"></script>
+  </body>
 </html>
 popup.css
 css
@@ -110,43 +115,30 @@ startBtn.addEventListener('click', startTimer);
 resetBtn.addEventListener('click', resetTimer);
 
 updateDisplay();
-manifest.json
-json
-Copiar código
-{
-  "manifest_version": 3,
-  "name": "Pomodoro - Pedro Alves",
-  "version": "1.0",
-  "description": "Extensão simples de Pomodoro para gerenciar tempo de foco.",
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  }
-}
+```
+# ⚡ Funcionalidades
+✅ Contagem regressiva de 25 minutos (padrão Pomodoro).
+✅ Botão Iniciar para começar o ciclo.
+✅ Botão Resetar para reiniciar a contagem.
+✅ Alerta visual no final do ciclo para lembrar de fazer uma pausa.
 
-⚙️ Instalação
-Baixe ou clone este repositório.
+# 🔧 Instalação (Modo Desenvolvedor)
+Baixe este repositório como .zip ou clone no seu computador.
 
-Abra o Google Chrome/OperaGX e vá em chrome://extensions/.
+Abra o Chrome ou Opera GX e vá em chrome://extensions/.
 
 Ative o Modo do Desenvolvedor (canto superior direito).
 
 Clique em Carregar sem compactação.
 
-Selecione a pasta onde os arquivos estão.
+Selecione a pasta onde está o projeto.
 
-Pronto! A extensão já vai aparecer na sua barra de extensões.
+O ícone da extensão aparecerá na barra do navegador. Clique para abrir o popup.
 
-🎯 Funcionalidades
-✅ Cronômetro de 25 minutos
-✅ Alerta quando o tempo acaba
-✅ Botão para resetar o contador
-✅ Design simples e leve
+# 📜 Licença
+Distribuído sob a licença MIT.
+Você pode usar, modificar e distribuir este projeto livremente, desde que mantenha os créditos.
 
-📄 Licença
-Projeto desenvolvido para fins acadêmicos.
-Você pode modificar e melhorar como quiser. 🎓
+# 🌐 GitHub Pages
+()
+
