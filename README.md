@@ -1,59 +1,26 @@
-<h1 align="center">⏳ Pomodoro Simples</h1>
+# ⏳ Extensão Pomodoro - SEU NOME
 
-<p align="center">
-  Uma extensão de Chrome para focar nos estudos usando a <b>Técnica Pomodoro</b>. <br>
-  Feita para o Desafio de Entrega Inicial do Bootcamp II.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Manifest-V3-blue" alt="Manifest Version 3">
-  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow">
-  <img src="https://img.shields.io/badge/Licença-MIT-green">
-</p>
+Uma extensão simples de Pomodoro feita para ajudar no gerenciamento de tempo.  
+Com ela, você pode iniciar um ciclo de 25 minutos de foco e receber alerta quando o tempo acabar.
 
 ---
 
-## 📖 Sobre o Projeto
-
-O **Pomodoro Simples** é uma extensão para Chrome/Opera que ajuda você a estudar ou trabalhar usando ciclos de 25 minutos de foco seguidos por pequenas pausas.  
-Tudo direto do popup do navegador, sem precisar abrir sites extras.  
-
----
-
-## 🖼️ Demonstração
-
-<img src="docs/demo.gif" alt="Demonstração do Pomodoro" width="300">
-
----
-
-## 🛠️ Funcionalidades
-
-✅ Contagem regressiva de **25 minutos**  
-✅ Botão de **reset** para reiniciar o ciclo  
-✅ Alerta quando o tempo acaba ☕  
-✅ Layout simples e responsivo  
-
----
-
-## 📂 Estrutura de Pastas
+## 📂 Estrutura do Projeto
 
 bootcamp2-chrome-ext-SEU_NOME/
-├─ manifest.json # Arquivo de configuração da extensão
-├─ popup.html # Interface do usuário
-├─ popup.css # Estilos do popup
-└─ popup.js # Lógica do timer Pomodoro
+├─ manifest.json # Configurações da extensão
+├─ popup.html # Interface do popup (timer e botões)
+├─ popup.css # Estilo do popup (cores, layout)
+└─ popup.js # Lógica do timer (contagem, reset, alerta)
 
 yaml
 Copiar código
 
+---
 
+## 📜 Código dos Arquivos
 
-> 🔑 Essa estrutura ajuda o professor a entender como está organizado o projeto, mesmo sem abrir os arquivos.
-
-Se quiser, pode até incluir **trechos de código** (como exemplos) no README:
-
-```md
-### 📜 Exemplo do manifest.json
+### `manifest.json`
 
 ```json
 {
@@ -63,55 +30,118 @@ Se quiser, pode até incluir **trechos de código** (como exemplos) no README:
   "description": "Uma extensão simples para gerenciar seu tempo com Pomodoro.",
   "action": {
     "default_popup": "popup.html"
----
-
-## 💻 Instalação
-
-Siga os passos abaixo para usar a extensão:
-
-1. **Baixe o projeto** clicando em `<> Code → Download ZIP` ou clonando via Git.
-2. **Extraia** o ZIP para uma pasta no seu computador.
-3. Abra o navegador e vá em:
-chrome://extensions
-
-nginx
+  }
+}
+popup.html
+html
 Copiar código
-ou no Opera:
-opera://extensions
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <h1>Pomodoro</h1>
+    <div id="timer">25:00</div>
+    <button id="start">Iniciar</button>
+    <button id="reset">Resetar</button>
 
-yaml
+    <script src="popup.js"></script>
+  </body>
+</html>
+popup.css
+css
 Copiar código
-4. Ative o **Modo do Desenvolvedor** (canto superior direito).
-5. Clique em **Carregar sem compactação**.
-6. Selecione a pasta do projeto.
+body {
+  width: 200px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 10px;
+}
 
-Pronto! ✅ Sua extensão está instalada.
+#timer {
+  font-size: 2em;
+  margin: 10px 0;
+}
 
----
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-## 🌐 Landing Page
+button:hover {
+  background: #ff4c4c;
+}
+popup.js
+js
+Copiar código
+let timeLeft = 25 * 60; // 25 minutos em segundos
+let timerId = null;
 
-Você pode acessar a página do projeto no GitHub Pages:  
-🔗 **[Clique aqui para visitar](https://PedroAlves2707.github.io/bootcamp2-chrome-ext-PedroAlves2707/)**
+const timerDisplay = document.getElementById('timer');
+const startBtn = document.getElementById('start');
+const resetBtn = document.getElementById('reset');
 
----
+function updateDisplay() {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  timerDisplay.textContent =
+    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
 
-## 📸 Screenshots
+function startTimer() {
+  if (timerId) return;
+  timerId = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      updateDisplay();
+    } else {
+      clearInterval(timerId);
+      timerId = null;
+      alert("⏰ Tempo acabou! Faça uma pausa!");
+    }
+  }, 1000);
+}
 
-<p align="center">
-<img src="docs/screenshot1.png" width="300">
-<img src="docs/screenshot2.png" width="300">
-</p>
+function resetTimer() {
+  clearInterval(timerId);
+  timerId = null;
+  timeLeft = 25 * 60;
+  updateDisplay();
+}
 
----
+startBtn.addEventListener('click', startTimer);
+resetBtn.addEventListener('click', resetTimer);
 
-## 📝 Licença
+updateDisplay();
+🖼️ Screenshots
+<p align="center"> <img src="docs/screenshot1.png" width="300" alt="Popup com timer inicial"> <img src="docs/screenshot2.png" width="300" alt="Popup durante a contagem"> </p>
+🚀 Como Rodar
+Baixe ou clone o repositório.
 
-Este projeto está licenciado sob a licença MIT.  
-Sinta-se livre para usar, modificar e compartilhar! 💙
+Abra o Chrome ou Opera GX.
 
----
+Vá em Extensões → Gerenciar extensões.
 
-<p align="center">
-Feito com ☕ e dedicação para o Bootcamp II.
-</p>
+Ative o Modo do desenvolvedor.
+
+Clique em Carregar sem compactação.
+
+Escolha a pasta da extensão.
+
+Clique no ícone e use seu Pomodoro!
+
+🎯 Funcionalidades
+✅ Timer de 25 minutos
+✅ Botão de iniciar e resetar
+✅ Alerta ao fim do tempo
+✅ Layout simples e funcional
+
