@@ -121,8 +121,10 @@ startBtn.addEventListener('click', startTimer);
 resetBtn.addEventListener('click', resetTimer);
 
 updateDisplay();
+
 📸 Screenshots
 <p align="center"> <img src="docs/screenshot1.png" width="300" alt="Popup com timer inicial"> <img src="docs/screenshot2.png" width="300" alt="Popup durante a contagem"> </p>
+
 🚀 Como Instalar
 Baixe ou clone o repositório.
 
