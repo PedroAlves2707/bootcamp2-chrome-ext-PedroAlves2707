@@ -26,7 +26,7 @@ Simples e direto: apenas os arquivos essenciais para a extensão funcionar.
 
 # 💻 Código dos Arquivos
 ```
-**index.html**
+index.html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
