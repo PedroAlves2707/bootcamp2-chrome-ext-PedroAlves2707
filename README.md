@@ -1,4 +1,4 @@
-# ⏳ Extensão Pomodoro - SEU NOME
+# ⏳ Extensão Pomodoro – Pedro Alves
 
 Uma extensão simples de Pomodoro feita para ajudar no gerenciamento de tempo.  
 Com ela, você pode iniciar um ciclo de 25 minutos de foco e receber alerta quando o tempo acabar.
@@ -7,7 +7,7 @@ Com ela, você pode iniciar um ciclo de 25 minutos de foco e receber alerta quan
 
 ## 📂 Estrutura do Projeto
 
-bootcamp2-chrome-ext-SEU_NOME/
+bootcamp2-chrome-ext-PedroAlves/
 ├─ manifest.json # Configurações da extensão
 ├─ popup.html # Interface do popup (timer e botões)
 ├─ popup.css # Estilo do popup (cores, layout)
@@ -26,7 +26,7 @@ Copiar código
 {
   "manifest_version": 3,
   "name": "Pomodoro Simples",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Uma extensão simples para gerenciar seu tempo com Pomodoro.",
   "action": {
     "default_popup": "popup.html"
@@ -47,7 +47,6 @@ Copiar código
     <div id="timer">25:00</div>
     <button id="start">Iniciar</button>
     <button id="reset">Resetar</button>
-
     <script src="popup.js"></script>
   </body>
 </html>
@@ -122,14 +121,12 @@ startBtn.addEventListener('click', startTimer);
 resetBtn.addEventListener('click', resetTimer);
 
 updateDisplay();
-🖼️ Screenshots
+📸 Screenshots
 <p align="center"> <img src="docs/screenshot1.png" width="300" alt="Popup com timer inicial"> <img src="docs/screenshot2.png" width="300" alt="Popup durante a contagem"> </p>
-🚀 Como Rodar
+🚀 Como Instalar
 Baixe ou clone o repositório.
 
-Abra o Chrome ou Opera GX.
-
-Vá em Extensões → Gerenciar extensões.
+Abra o Chrome/Opera GX e vá em Extensões → Gerenciar Extensões.
 
 Ative o Modo do desenvolvedor.
 
@@ -144,4 +141,3 @@ Clique no ícone e use seu Pomodoro!
 ✅ Botão de iniciar e resetar
 ✅ Alerta ao fim do tempo
 ✅ Layout simples e funcional
-
