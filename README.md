@@ -5,36 +5,11 @@ Com ela, você pode iniciar um ciclo de 25 minutos de foco e receber alerta quan
 
 ---
 
-## 📂 Estrutura do Projeto
-
-bootcamp2-chrome-ext-PedroAlves/
-├─ manifest.json # Configurações da extensão
-├─ popup.html # Interface do popup (timer e botões)
-├─ popup.css # Estilo do popup (cores, layout)
-└─ popup.js # Lógica do timer (contagem, reset, alerta)
-
-yaml
-Copiar código
-
----
-
 ## 📜 Código dos Arquivos
 
-### `manifest.json`
+### `popup.html`
 
-```json
-{
-  "manifest_version": 3,
-  "name": "Pomodoro Simples",
-  "version": "1.0.0",
-  "description": "Uma extensão simples para gerenciar seu tempo com Pomodoro.",
-  "action": {
-    "default_popup": "popup.html"
-  }
-}
-popup.html
-html
-Copiar código
+```html
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -121,7 +96,6 @@ startBtn.addEventListener('click', startTimer);
 resetBtn.addEventListener('click', resetTimer);
 
 updateDisplay();
-
 📸 Screenshots
 <p align="center"> <img src="docs/screenshot1.png" width="300" alt="Popup com timer inicial"> <img src="docs/screenshot2.png" width="300" alt="Popup durante a contagem"> </p>
 
