@@ -26,94 +26,226 @@ Simples e direto: apenas os arquivos essenciais para a extensão funcionar.
 
 # 💻 Código dos Arquivos
 ```
-popup.html
-html
-Copiar código
-<!doctype html>
-<html lang="pt-BR">
-  <head>
+index.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
-    <title>Pomodoro</title>
-    <link rel="stylesheet" href="popup.css">
-  </head>
-  <body>
-    <h1>Pomodoro</h1>
-    <div id="timer">25:00</div>
-    <button id="start">Iniciar</button>
-    <button id="reset">Resetar</button>
-    <script src="popup.js"></script>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer - por PedroAlves2707</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="pomodoro-container">
+        <h1>Pomodoro Timer</h1>
+        
+        <div id="timer-display">25:00</div>
+        
+        <div class="button-container">
+            <button id="start-btn">Iniciar</button>
+            <button id="pause-btn">Pausar</button>
+            <button id="reset-btn">Resetar</button>
+        </div>
+    </div>
+
+    <div class="links-container">
+        <h3>Baixe a Extensão</h3>
+        <ul>
+            <li><a href="https://github.com/PedroAlves2707/bootcamp2-chrome-ext-PedroAlves2707" target="_blank">Ver no GitHub (Código Fonte)</a></li>
+            <li><a href="https://github.com/PedroAlves2707/bootcamp2-chrome-ext-PedroAlves2707/releases" target="_blank">Baixar .zip (Instalador)</a></li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
-popup.css
-css
-Copiar código
+style.css
+/* Reset básico e estilo geral do corpo da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  width: 200px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a2e; /* Fundo escuro azulado */
+    color: #e0e0e0; /* Cor de texto clara */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-#timer {
-  font-size: 2em;
-  margin: 10px 0;
+/* Contêiner principal do Pomodoro */
+.pomodoro-container {
+    background-color: #1f1f38; /* Um pouco mais claro que o fundo */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 40px;
 }
 
-button {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  background: #ff6b6b;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
+h1 {
+    font-size: 2.5rem;
+    color: #7f5af0; /* Cor de destaque roxa */
+    margin-bottom: 20px;
 }
 
-button:hover {
-  background: #ff4c4c;
+/* Estilo do display do tempo */
+#timer-display {
+    font-size: 6rem;
+    font-weight: 600;
+    color: #fffffe; /* Branco puro para destaque */
+    margin-bottom: 30px;
 }
-popup.js
-js
-Copiar código
-let timeLeft = 25 * 60; // 25 minutos em segundos
-let timerId = null;
 
-const timerDisplay = document.getElementById('timer');
-const startBtn = document.getElementById('start');
-const resetBtn = document.getElementById('reset');
+/* Contêiner para os botões */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os botões */
+}
 
+/* Estilo geral dos botões */
+.button-container button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fffffe;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button-container button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px); /* Efeito de levantar ao passar o mouse */
+}
+
+/* Cores específicas para cada botão */
+#start-btn {
+    background-color: #2cb67d; /* Verde */
+}
+
+#pause-btn {
+    background-color: #ff9a00; /* Laranja */
+}
+
+#reset-btn {
+    background-color: #e53e3e; /* Vermelho */
+}
+
+/* Contêiner para os links de download */
+.links-container {
+    text-align: center;
+}
+
+.links-container h3 {
+    font-size: 1.2rem;
+    color: #7f5af0;
+    margin-bottom: 15px;
+}
+
+.links-container ul {
+    list-style: none;
+}
+
+.links-container li {
+    margin-bottom: 10px;
+}
+
+.links-container a {
+    color: #a7a9be;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.links-container a:hover {
+    color: #fffffe;
+    text-decoration: underline;
+}
+script.js
+// Pegando os elementos do HTML
+const timerDisplay = document.getElementById('timer-display');
+const startBtn = document.getElementById('start-btn');
+const pauseBtn = document.getElementById('pause-btn');
+const resetBtn = document.getElementById('reset-btn');
+
+// Variáveis de estado do timer
+let timer; // Para guardar o ID do setInterval
+let minutes = 25;
+let seconds = 0;
+let isPaused = true; // Começa pausado
+
+// Função para formatar o tempo e atualizar o display
 function updateDisplay() {
-  let minutes = Math.floor(timeLeft / 60);
-  let seconds = timeLeft % 60;
-  timerDisplay.textContent =
-    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+    timerDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
+    document.title = `${formattedMinutes}:${formattedSeconds} - Pomodoro Timer`;
 }
 
-function startTimer() {
-  if (timerId) return;
-  timerId = setInterval(() => {
-    if (timeLeft > 0) {
-      timeLeft--;
-      updateDisplay();
+// Função principal que executa a cada segundo
+function countdown() {
+    if (seconds === 0) {
+        if (minutes === 0) {
+            // Timer chegou ao fim
+            clearInterval(timer);
+            alert("Tempo esgotado! Hora de uma pausa.");
+            resetTimer();
+            return;
+        }
+        minutes--;
+        seconds = 59;
     } else {
-      clearInterval(timerId);
-      timerId = null;
-      alert("⏰ Tempo acabou! Faça uma pausa!");
+        seconds--;
     }
-  }, 1000);
+    updateDisplay();
 }
 
+// Função para iniciar ou resumir o timer
+function startTimer() {
+    if (isPaused) {
+        isPaused = false;
+        // Inicia o intervalo, executando a função countdown a cada 1000ms (1 segundo)
+        timer = setInterval(countdown, 1000);
+    }
+}
+
+// Função para pausar o timer
+function pauseTimer() {
+    isPaused = true;
+    // Para o intervalo
+    clearInterval(timer);
+}
+
+// Função para resetar o timer
 function resetTimer() {
-  clearInterval(timerId);
-  timerId = null;
-  timeLeft = 25 * 60;
-  updateDisplay();
+    isPaused = true;
+    clearInterval(timer);
+    minutes = 25;
+    seconds = 0;
+    updateDisplay(); // Atualiza o display para o tempo inicial
 }
 
+// Adicionando os eventos aos botões
 startBtn.addEventListener('click', startTimer);
+pauseBtn.addEventListener('click', pauseTimer);
 resetBtn.addEventListener('click', resetTimer);
 
+// Garante que o display mostre o tempo inicial quando a página carrega
 updateDisplay();
 ```
 # ⚡ Funcionalidades
@@ -140,5 +272,5 @@ Distribuído sob a licença MIT.
 Você pode usar, modificar e distribuir este projeto livremente, desde que mantenha os créditos.
 
 # 🌐 GitHub Pages
-()
+(https://pedroalves2707.github.io/bootcamp2-chrome-ext-PedroAlves2707)
 
