@@ -9,9 +9,9 @@ Ideal para quem quer organizar o tempo de estudo ou trabalho com ciclos de 25 mi
 
 ```bash
 pomodoro-extension/
-├─ popup.html
-├─ popup.css
-├─ popup.js
+├─ index.html
+├─ style.css
+├─ scrip.js
 ├─ manifest.json
 └─ README.md
 ```
