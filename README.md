@@ -275,3 +275,6 @@ Você pode usar, modificar e distribuir este projeto livremente, desde que mante
 # 🌐 GitHub Pages
 (https://pedroalves2707.github.io/bootcamp2-chrome-ext-PedroAlves2707)
 
+# 📦 Release
+(https://github.com/PedroAlves2707/bootcamp2-chrome-ext-PedroAlves2707/releases)
+
