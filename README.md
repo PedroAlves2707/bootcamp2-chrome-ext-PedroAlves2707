@@ -46,6 +46,23 @@ bootcamp2-chrome-ext-SEU_NOME/
 yaml
 Copiar código
 
+
+
+> 🔑 Essa estrutura ajuda o professor a entender como está organizado o projeto, mesmo sem abrir os arquivos.
+
+Se quiser, pode até incluir **trechos de código** (como exemplos) no README:
+
+```md
+### 📜 Exemplo do manifest.json
+
+```json
+{
+  "manifest_version": 3,
+  "name": "Pomodoro Simples",
+  "version": "1.0",
+  "description": "Uma extensão simples para gerenciar seu tempo com Pomodoro.",
+  "action": {
+    "default_popup": "popup.html"
 ---
 
 ## 💻 Instalação
