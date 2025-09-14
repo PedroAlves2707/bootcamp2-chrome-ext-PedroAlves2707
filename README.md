@@ -1,15 +1,49 @@
 # ⏳ Extensão Pomodoro – Pedro Alves
 
-Uma extensão simples de Pomodoro feita para ajudar no gerenciamento de tempo.  
-Com ela, você pode iniciar um ciclo de 25 minutos de foco e receber alerta quando o tempo acabar.
+Uma extensão simples de **Pomodoro** feita para ajudar no gerenciamento de tempo.  
+Com ela, você pode iniciar um ciclo de **25 minutos de foco** e receber um alerta quando o tempo acabar.
 
 ---
 
-## 📜 Código dos Arquivos
+## 📂 Estrutura do Projeto
 
-### `popup.html`
+```bash
+focusfox-chrome-extension/
+├─ src/
+│  ├─ popup/
+│  │  ├─ popup.html
+│  │  ├─ popup.js
+│  │  └─ popup.css
+│  ├─ content/
+│  │  └─ content.js
+│  ├─ background/
+│  │  └─ service-worker.js
+│  ├─ options/
+│  │  ├─ options.html
+│  │  └─ options.js
+│  ├─ assets/
+│  │  └─ logo.svg
+│  └─ styles/
+│     └─ global.css
+├─ icons/
+│  ├─ icon16.png
+│  ├─ icon32.png
+│  ├─ icon48.png
+│  └─ icon128.png
+├─ docs/
+│  └─ index.html
+├─ manifest.json
+├─ README.md
+└─ LICENSE
+🖼️ Screenshots
+Popup da Extensão	Alerta de Fim de Ciclo
 
-```html
+(Tire screenshots do popup aberto no Chrome e do alerta aparecendo quando o tempo acaba, salve na pasta docs/ e use os nomes acima para aparecerem aqui)
+
+📜 Código dos Principais Arquivos
+popup.html
+html
+Copiar código
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -96,24 +130,39 @@ startBtn.addEventListener('click', startTimer);
 resetBtn.addEventListener('click', resetTimer);
 
 updateDisplay();
-📸 Screenshots
-<p align="center"> <img src="docs/screenshot1.png" width="300" alt="Popup com timer inicial"> <img src="docs/screenshot2.png" width="300" alt="Popup durante a contagem"> </p>
+⚙️ Instalação
+Baixe ou clone este repositório.
 
-🚀 Como Instalar
-Baixe ou clone o repositório.
+Abra o Google Chrome e vá em chrome://extensions/.
 
-Abra o Chrome/Opera GX e vá em Extensões → Gerenciar Extensões.
-
-Ative o Modo do desenvolvedor.
+Ative o Modo do Desenvolvedor (canto superior direito).
 
 Clique em Carregar sem compactação.
 
-Escolha a pasta da extensão.
+Selecione a pasta do projeto.
 
-Clique no ícone e use seu Pomodoro!
+Pronto! A extensão será carregada e estará disponível no seu navegador.
 
 🎯 Funcionalidades
-✅ Timer de 25 minutos
-✅ Botão de iniciar e resetar
-✅ Alerta ao fim do tempo
-✅ Layout simples e funcional
+✅ Inicia um cronômetro de 25 minutos
+✅ Exibe o tempo restante em tempo real
+✅ Mostra alerta sonoro/visual quando o ciclo acaba
+✅ Permite resetar o cronômetro a qualquer momento
+
+📸 O que Entregar
+README.md (este arquivo bem organizado)
+
+Código da extensão funcionando
+
+Manifest.json válido
+
+Screenshots mostrando:
+
+Popup da extensão aberto
+
+Alerta de fim de ciclo
+
+Vídeo ou GIF opcional mostrando o funcionamento
+
+📄 Licença
+Este projeto está sob a licença MIT – fique à vontade para usar e modificar.
