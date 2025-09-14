@@ -19,7 +19,7 @@ Simples e direto: apenas os arquivos essenciais para a extensão funcionar.
 
 # 🖼️ Screenshots
 📌 Popup da Extensão
-(adicione aqui um print do popup aberto no navegador)
+![Preview do Pomodoro](https://github.com/user-attachments/assets/feb49234-4e26-4bd9-868f-caa80d0e1741)
 
 📌 Alerta de Fim de Ciclo
 (adicione aqui um print da mensagem de alerta quando o tempo acabar)
