@@ -127,6 +127,7 @@ Copiar código
     "128": "icon128.png"
   }
 }
+
 ⚙️ Instalação
 Baixe ou clone este repositório.
 
