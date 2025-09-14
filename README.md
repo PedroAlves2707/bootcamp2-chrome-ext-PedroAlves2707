@@ -22,7 +22,7 @@ Simples e direto: apenas os arquivos essenciais para a extensão funcionar.
 ![Preview do Pomodoro](https://github.com/user-attachments/assets/feb49234-4e26-4bd9-868f-caa80d0e1741)
 
 📌 Alerta de Fim de Ciclo
-(adicione aqui um print da mensagem de alerta quando o tempo acabar)
+![Preview do Pomodoro](https://github.com/user-attachments/assets/0dffbce0-506e-443c-b3d6-b8f9afbf2b61)
 
 # 💻 Código dos Arquivos
 ```
