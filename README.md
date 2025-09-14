@@ -251,6 +251,7 @@ updateDisplay();
 # ⚡ Funcionalidades
 ✅ Contagem regressiva de 25 minutos (padrão Pomodoro).
 ✅ Botão Iniciar para começar o ciclo.
+✅ Botão para pausar a contagem.
 ✅ Botão Resetar para reiniciar a contagem.
 ✅ Alerta visual no final do ciclo para lembrar de fazer uma pausa.
 
